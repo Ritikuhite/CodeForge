@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Live Editor</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="https://shorturl.at/agln5" type="image/x-icon">
+
+  <meta name="description" content="A simple live editor with very few lines of code.">
+
+  <!-- Social: Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@corizo">
+  <meta name="twitter:title" content="Live Editor">
+  <meta name="twitter:description" content="A simple live editor with very few lines of code.">
+
+  <link rel="stylesheet" href="css/prism.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a href="https://github.com/" class="github-corner" ><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#f8c555; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+  <!-- Preview of the code -->
+  <iframe id="preview"></iframe>
+
+  <!-- Editor Boxes -->
+  <div class="editor">
+
+    <textarea id="html" class="language-html">
+      <h1>Hello World!</h1>
+ 
+      <pre id="typewriter">
+      <span class="var-highlight">var</span> object = {
+          name: <span class="string-highlight">'Foo'</span>,
+          type: <span class="string-highlight">'Bar'</span>,
+          location: <span class="string-highlight">'Earth'</span>,
+          properties:[<span class="string-highlight">'Javascript'</span>,
+                      <span class="string-highlight">'HTML'</span>,
+                      <span class="string-highlight">'CSS'</span>];
+      }; </pre>
+      
+    </textarea>
+
+    <textarea id="css" class="language-css">
+body {
+  align-items: center;
+  background: #03001e;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #23074d;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #cc5333, #23074d);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #cc5333, #23074d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  color: white;
+  font-size: 72px;
+}
+
+span {
+  color: red;
+  font-size: px;
+}
+.var-highlight{
+  color: #C0AD60;
+}
+.string-highlight{
+  color: rgba(253, 149, 90, 0.8);
+}
+
+#typewriter{
+    font-size: 2em;
+    margin: 0;
+    font-family: "Courier New";
+
+    &:after{
+      content: "|";
+      animation: blink 500ms linear infinite alternate;
+    }
+}
+
+@-webkit-keyframes blink{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+@-moz-keyframes blink{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+@keyframes blink{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+    </textarea>
+
+    <textarea id="js" class="language-js">
+var hello = document.querySelector('h1');
+
+hello.innerHTML +=  ' I <span>❤️</span> JS! ';
+function setupTypewriter(t) {
+  var HTML = t.innerHTML;
+
+  t.innerHTML = "";
+
+  var cursorPosition = 0,
+      tag = "",
+      writingTag = false,
+      tagOpen = false,
+      typeSpeed = 100,
+    tempTypeSpeed = 0;
+
+  var type = function() {
+    
+      if (writingTag === true) {
+          tag += HTML[cursorPosition];
+      }
+
+      if (HTML[cursorPosition] === "<") {
+          tempTypeSpeed = 0;
+          if (tagOpen) {
+              tagOpen = false;
+              writingTag = true;
+          } else {
+              tag = "";
+              tagOpen = true;
+              writingTag = true;
+              tag += HTML[cursorPosition];
+          }
+      }
+      if (!writingTag && tagOpen) {
+          tag.innerHTML += HTML[cursorPosition];
+      }
+      if (!writingTag && !tagOpen) {
+          if (HTML[cursorPosition] === " ") {
+              tempTypeSpeed = 0;
+          }
+          else {
+              tempTypeSpeed = (Math.random() * typeSpeed) + 50;
+          }
+          t.innerHTML += HTML[cursorPosition];
+      }
+      if (writingTag === true && HTML[cursorPosition] === ">") {
+          tempTypeSpeed = (Math.random() * typeSpeed) + 50;
+          writingTag = false;
+          if (tagOpen) {
+              var newSpan = document.createElement("span");
+              t.appendChild(newSpan);
+              newSpan.innerHTML = tag;
+              tag = newSpan.firstChild;
+          }
+      }
+
+      cursorPosition += 1;
+      if (cursorPosition < HTML.length - 1) {
+          setTimeout(type, tempTypeSpeed);
+      }
+
+  };
+
+  return {
+      type: type
+  };
+}
+
+var typer = document.getElementById('typewriter');
+
+typewriter = setupTypewriter(typewriter);
+
+typewriter.type();
+document.designMode="on";
+    </textarea>
+  </div>
+  <!--  <script>
+    const closeChars = new Map([
+  ['{', '}'],
+  ['[', ']'],
+  ['(', ')']
+]);
+    
+maintextarea=document.getElementById('maintextarea');
+
+maintextarea.addEventListener('input', function (e) {
+
+    const pos = e.target.selectionStart;
+    const val = [...e.target.value];
+    
+    const char = val.slice(pos-1, pos)[0];
+    const closeChar = closeChars.get(char);
+    
+    if (closeChar) {
+      val.splice(pos, 0, closeChar);
+      e.target.value = val.join('');
+      e.target.selectionEnd = pos;
+    }
+}); 
+  </script> -->
+  <script src="js/prism.js"></script>
+  <script src="js/prism-highlight.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Login From</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/> --> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="signUp.css" />
+  </head>
+  <body>
+    <div class="signUp_form_container">
+      <div class="signUp_form">
+        <h2>Sign Up</h2>
+        <div class="input_group">
+          <i class="fa fa-user"></i>
+          <input
+            type="text"
+            placeholder="Username"
+            class="input_text"
+            autocomplete="off"/>
+        </div>
+        <div class="input_group">
+            <i class="fa-solid fa-at"></i>
+            <input
+              type="text"
+              placeholder="User E-mail"
+              class="input_text"
+              autocomplete="off"/>
+          </div>
+
+        <div class="input_group">
+          <i class="fa fa-unlock-alt"></i>
+          <input id ="valid1"
+            type="password"
+            placeholder="Password"
+            class="input_text"
+            autocomplete="off"
+          />
+        </div>
+        <div class="input_group">
+          <i class="fa fa-unlock-alt"></i>
+          <input id ="valid2"
+            type=" password"
+            placeholder="Confirm Password"
+            class="input_text"
+            autocomplete="off"
+            onkeyup="valid_password()"
+          />
+        </div>
+        <div class="button_group" id="signUp_button">
+          <div id="create" onclick="wrong_pass_alrt()">
+            <a>Submit</a>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="signUp.js"></script>
+  </body>
+</html>
